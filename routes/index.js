@@ -1,12 +1,12 @@
 const routes = require('express').Router();
 const category = require('./category');
-//const post = require('./post/post');
+const product = require('./product');
 
-//add more routes
 routes.use(category);
+routes.use(product);
 
 routes.get('/', (req, res) => {
-    res.status(200).json({ message: 'Homepage!' });
+    res.status(200).json({ message: 'Welcome to home page.' });
 });
 
 module.exports = routes;
