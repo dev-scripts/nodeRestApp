@@ -30,6 +30,11 @@ app.use(bodyParser.json()); // parse form data client
 // Connect all our routes to our application
 app.use('/', routes);
 
+// 404 page not found
+app.use(function (req, res, next) {
+    return res.status(400).json({ message: "Sorry can't find the requested page.", response: '' });
+  })
+
 // Turn on that server!
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
