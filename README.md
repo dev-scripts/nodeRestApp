@@ -32,8 +32,6 @@ npm install
 
 ## Creating the database for the app
 
-Explain how to run the automated tests for this system
-
 ```sql
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -96,6 +94,28 @@ ALTER TABLE `categories`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+```
+
+## Database connection
+
+inside app.js file
+
+```node
+// the mysql.createConnection function takes in a configuration object which contains host, user, password and the database name.
+const db = mysql.createConnection ({
+    host: 'localhost', // host name
+    user: 'root', // username of your database
+    password: 'root', // password your application
+    database: 'app1'// database name of your application
+});
+
+// connect to database
+db.connect((err) => {
+    if (err) {
+        throw err;
+    }
+    console.log('Connected to database');
+});
 ```
 
 ### Run application
