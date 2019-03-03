@@ -3,7 +3,7 @@ const category = require('express').Router();
 module.exports = {
 
     // Get all the categories
-    getAll: (req, res) => {
+    get: (req, res) => {
         let query = "SELECT * FROM `categories` ORDER BY id ASC";
         // execute query
         db.query(query, (err, result) => {
@@ -15,7 +15,7 @@ module.exports = {
     },
 
     // get one category by category Id
-    getById: (req, res) => {
+    view: (req, res) => {
         let id = req.params.id;
         let query = "SELECT * FROM `categories` WHERE id = " + id + "";
         // execute query
