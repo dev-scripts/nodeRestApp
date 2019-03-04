@@ -2,15 +2,20 @@
 const app = require('express')();
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
+
+//Use dotenv to read .env vars into Node
+require('dotenv').config();
+
 const routes = require('./routes');
 
 // the mysql.createConnection function takes in a configuration object which contains host, user, password and the database name.
 const db = mysql.createConnection ({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'app1'
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE_NAME
 });
+
 
 // connect to database
 db.connect((err) => {
@@ -22,7 +27,7 @@ db.connect((err) => {
 
 global.db = db;
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); // parse form data client
