@@ -16,8 +16,7 @@
     "dotenv": "^6.2.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "mysql": "^2.16.0",
-    "req-flash": "0.0.3"
+    "mysql": "^2.16.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"

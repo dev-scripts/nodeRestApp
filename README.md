@@ -8,7 +8,7 @@ Before you start this tutorial it is you need to fulfill all the requirements li
 
 
 ```
-1. Node JS and MySQL  installed on your PC.
+1. Node JS, Nodemon and MySQL  installed on your PC.
 2. It is better to have a basic understanding of Node JS, Express JS and MySQL queries.
 3. A text editor or IDE of your choice.
 ```
@@ -30,7 +30,7 @@ npm install
 ```
 
 
-## Creating the database for the app
+## Creating the database and tables for the app
 
 ```sql
 
@@ -137,24 +137,18 @@ ALTER TABLE `products`
 
 ## Database connection
 
-inside app.js file
+create rename .env.example to .env and setup your ENV varaibales
 
 ```node
-// the mysql.createConnection function takes in a configuration object which contains host, user, password and the database name.
-const db = mysql.createConnection ({
-    host: 'localhost', // host name
-    user: 'root', // username of your database
-    password: 'root', // password your application
-    database: 'app1'// database name of your application
-});
+# .env.example
+NODE_ENV=development
+PORT=8000
 
-// connect to database
-db.connect((err) => {
-    if (err) {
-        throw err;
-    }
-    console.log('Connected to database');
-});
+# Set your database connection information here
+DATABASE_HOST=192.168.56.111 
+DATABASE_NAME=app1
+DATABASE_USER=homestead
+DATABASE_PASSWORD=secret
 ```
 
 ### Run application
